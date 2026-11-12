@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   runCalculation,
@@ -172,18 +173,18 @@ export default function CreditCalculator() {
         {/* 버튼 줄은 화면 아래에 붙어 따라온다(sticky): 입력이 길어도 스크롤 없이 바로 계산할 수 있다 (D-26) */}
         {/* 버튼: 휴대폰은 KRDS large(높이 56px), 큰 화면은 xlarge(64px) · 모서리 8px · 글자 19px. 주 버튼(primary) + 보조 버튼(tertiary)
             flex-1은 가로로 놓일 때만 준다 (세로로 쌓일 때 주면 버튼 높이가 0 기준으로 줄어든다) */}
-        <div className="sticky bottom-3 z-10 flex flex-col gap-3 rounded-2xl border border-line-light bg-surface p-3 shadow-md sm:flex-row">
+        <div className="sticky bottom-3 z-10 flex gap-2 rounded-2xl border border-line-light bg-surface p-2 shadow-md sm:gap-3 sm:p-3">
           <button
             type="submit"
             disabled={year === null}
-            className={`${buttonClass} ${buttonPrimary} h-14 rounded-lg px-8 text-lg font-bold sm:h-16 sm:flex-1`}
+            className={`${buttonClass} ${buttonPrimary} h-14 flex-1 rounded-lg px-4 text-lg font-bold sm:h-16 sm:px-8`}
           >
             계산하기
           </button>
           <button
             type="button"
             onClick={handleReset}
-            className={`${buttonClass} ${buttonTertiary} h-14 rounded-lg px-8 text-lg sm:h-16`}
+            className={`${buttonClass} ${buttonTertiary} h-14 rounded-lg px-4 text-base sm:h-16 sm:px-8 sm:text-lg`}
           >
             처음부터 다시
           </button>
@@ -201,6 +202,15 @@ export default function CreditCalculator() {
         ) : (
           // 계산하기 전의 빈 자리: 넓은 화면에서 오른쪽이 텅 비어 보이지 않도록 안내만 보여준다 (휴대폰에서는 숨김)
           <div className="hidden rounded-2xl border-2 border-dashed border-line bg-surface p-10 text-center lg:block">
+            {/* 마스코트 키우미: 빈 자리를 채우는 장식 이미지 (캠코 누리집 출처, page.tsx 맨 아래에 출처 표시) */}
+            <Image
+              src="/kamco/kiuumi.png"
+              alt=""
+              width={899}
+              height={1183}
+              sizes="128px"
+              className="mx-auto mb-4 h-32 w-auto"
+            />
             <p className="text-lg font-bold text-fg-bolder">계산 결과</p>
             <p className="mt-2 text-sm text-fg-subtle">
               정보를 입력하고 &quot;계산하기&quot;를 누르면
