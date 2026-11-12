@@ -17,7 +17,7 @@ const pretendardGov = localFont({
 export const metadata: Metadata = {
   title: "내 교육학점 계산기",
   description: "직급과 부재 기간을 입력하면 선택한 연도의 목표 교육학점과 남은 학점을 계산해 줍니다.",
-  // 사내용 자료이므로 검색엔진에 노출·저장되지 않게 한다 (X-Robots-Tag 머리글과 함께 이중으로 막음)
+  // 공개 배포이지만 검색엔진에는 노출·저장되지 않게 한다 (X-Robots-Tag 머리글과 함께 이중으로 막음)
   robots: { index: false, follow: false, nocache: true },
 };
 
