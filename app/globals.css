@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+/*
+ * KRDS(대한민국 정부 디자인 시스템) 토큰 적용
+ * 출처: 공식 패키지 krds-uiux 1.1.0 의 resources/css/token/krds_tokens.css
+ * - KRDS는 1rem=10px 기준이라, 여기서는 같은 크기가 되도록 px 값으로 옮겨 적었다.
+ * - 밝은 화면은 KRDS "light" 모드, 어두운 화면은 KRDS "선명한 화면 모드(high-contrast)" 값을 쓴다.
+ * - 화면 코드에서는 아래 "의미 이름"(surface·fg·line·primary 등)만 쓴다. 색을 바꿀 때는 이 파일만 고치면 된다.
+ */
+
+:root {
+  /* ── 바탕(surface) ── */
+  --krds-surface-page: #f4f5f6; /* gray-5: 페이지 바탕 */
+  --krds-surface: #ffffff; /* gray-0: 카드·입력칸 바탕 */
+  --krds-surface-subtle: #f4f5f6; /* gray-5: 카드 안의 연한 칸 */
+  --krds-surface-muted: #e6e8ea; /* gray-10: 진행 막대 바탕 등 */
+  --krds-surface-primary: #ecf2fe; /* primary-5 */
+  --krds-surface-primary-selected: #d8e5fd; /* primary-10: 칩 선택됨 */
+  --krds-surface-secondary: #eef2f7; /* secondary-5 */
+  --krds-surface-danger: #fdefec; /* danger-5 */
+  --krds-surface-warning: #fff3db; /* warning-5 */
+  --krds-surface-success: #eaf6ec; /* success-5 */
+  --krds-surface-information: #e7f4fe; /* information-5 */
+  --krds-surface-inverse: #1e2124; /* gray-90 */
+
+  /* ── 글자(text) ── */
+  --krds-fg: #1e2124; /* text-basic: gray-90 */
+  --krds-fg-bolder: #131416; /* text-bolder: gray-95 */
+  --krds-fg-subtle: #464c53; /* text-subtle: gray-70 */
+  --krds-fg-disabled: #8a949e; /* text-disabled: gray-40 */
+  --krds-fg-primary: #0b50d0; /* text-primary: primary-60 */
+  --krds-fg-secondary: #052b57; /* text-secondary: secondary-80 */
+  --krds-fg-danger: #bd2c0f; /* text-danger: danger-60 */
+  --krds-fg-warning: #8a5c00; /* text-warning: warning-60 */
+  --krds-fg-success: #267337; /* text-success: success-60 */
+  --krds-fg-information: #096ab3; /* text-information: information-60 */
+  --krds-fg-inverse: #ffffff; /* text-inverse-static */
+
+  /* ── 선(border) ── */
+  --krds-line-light: #cdd1d5; /* border-gray-light: gray-20 */
+  --krds-line: #b1b8be; /* border-gray: gray-30 */
+  --krds-line-dark: #58616a; /* border-gray-dark / input-border: gray-60 */
+  --krds-line-danger: #de3412; /* border-danger: danger-50 */
+  --krds-line-danger-light: #fcdfd9; /* danger-10 */
+  --krds-line-warning-light: #ffe0a3; /* warning-10 */
+  --krds-line-success-light: #d8eedd; /* success-10 */
+  --krds-line-information-light: #d3ebfd; /* information-10 */
+  --krds-line-primary-light: #d8e5fd; /* primary-10 */
+
+  /* ── 강조 요소(element)·버튼 ── */
+  --krds-primary: #256ef4; /* primary-50: 주 버튼·선택·초점 */
+  --krds-primary-hover: #0b50d0; /* primary-60 */
+  --krds-primary-pressed: #083891; /* primary-70 */
+  --krds-secondary: #063a74; /* secondary-70: 머리글 띠 등 짙은 남색 */
+  --krds-success: #228738; /* success-50 */
+  --krds-gray-element: #6d7882; /* gray-50 */
+  --krds-button-secondary-hover: #d8e5fd; /* button-secondary-fill-hover: primary-10 */
+  --krds-button-tertiary-hover: #f4f5f6; /* button-tertiary-fill-hover: gray-5 */
+}
+
+/* 어두운 화면: KRDS "선명한 화면 모드(high-contrast)" 토큰 값 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --krds-surface-page: #131416; /* gray-95 */
+    --krds-surface: #000000; /* gray-100 */
+    --krds-surface-subtle: #131416;
+    --krds-surface-muted: #33363d; /* gray-80 */
+    --krds-surface-primary: #020f27; /* primary-95 */
+    --krds-surface-primary-selected: #03163a; /* primary-90 */
+    --krds-surface-secondary: #091f25; /* high-contrast secondary-95 */
+    --krds-surface-danger: #260903;
+    --krds-surface-warning: #241800;
+    --krds-surface-success: #0e2012;
+    --krds-surface-information: #021a2c;
+    --krds-surface-inverse: #e6e8ea;
+
+    --krds-fg: #f4f5f6; /* gray-5 */
+    --krds-fg-bolder: #e6e8ea; /* gray-10 */
+    --krds-fg-subtle: #cdd1d5; /* gray-20 */
+    --krds-fg-disabled: #58616a; /* gray-60 */
+    --krds-fg-primary: #b1cefb; /* primary-20 */
+    --krds-fg-secondary: #abd8e3; /* high-contrast secondary-20 */
+    --krds-fg-danger: #f7afa1; /* danger-20 */
+    --krds-fg-warning: #ffc95c; /* warning-20 */
+    --krds-fg-success: #a9dab4; /* success-20 */
+    --krds-fg-information: #9ed2fa; /* information-20 */
+
+    --krds-line-light: #33363d; /* gray-80 */
+    --krds-line: #464c53; /* gray-70 */
+    --krds-line-dark: #8a949e; /* gray-40 */
+    --krds-line-danger-light: #390d05;
+    --krds-line-warning-light: #2e1f00;
+    --krds-line-success-light: #122b18;
+    --krds-line-information-light: #03253f;
+    --krds-line-primary-light: #03163a;
+
+    --krds-secondary: #1f687a; /* high-contrast secondary-60 */
+    --krds-button-secondary-hover: #03163a; /* primary-90 */
+    --krds-button-tertiary-hover: #131416; /* gray-95 */
+  }
+}
+
+@theme inline {
+  /* 색: Tailwind 클래스 이름으로 쓸 수 있게 연결 (예: bg-surface, text-fg-subtle, border-line-dark) */
+  --color-page: var(--krds-surface-page);
+  --color-surface: var(--krds-surface);
+  --color-surface-subtle: var(--krds-surface-subtle);
+  --color-surface-muted: var(--krds-surface-muted);
+  --color-surface-primary: var(--krds-surface-primary);
+  --color-surface-primary-selected: var(--krds-surface-primary-selected);
+  --color-surface-secondary: var(--krds-surface-secondary);
+  --color-surface-danger: var(--krds-surface-danger);
+  --color-surface-warning: var(--krds-surface-warning);
+  --color-surface-success: var(--krds-surface-success);
+  --color-surface-information: var(--krds-surface-information);
+  --color-surface-inverse: var(--krds-surface-inverse);
+
+  --color-fg: var(--krds-fg);
+  --color-fg-bolder: var(--krds-fg-bolder);
+  --color-fg-subtle: var(--krds-fg-subtle);
+  --color-fg-disabled: var(--krds-fg-disabled);
+  --color-fg-primary: var(--krds-fg-primary);
+  --color-fg-secondary: var(--krds-fg-secondary);
+  --color-fg-danger: var(--krds-fg-danger);
+  --color-fg-warning: var(--krds-fg-warning);
+  --color-fg-success: var(--krds-fg-success);
+  --color-fg-information: var(--krds-fg-information);
+  --color-fg-inverse: var(--krds-fg-inverse);
+
+  --color-line-light: var(--krds-line-light);
+  --color-line: var(--krds-line);
+  --color-line-dark: var(--krds-line-dark);
+  --color-line-danger: var(--krds-line-danger);
+  --color-line-danger-light: var(--krds-line-danger-light);
+  --color-line-warning-light: var(--krds-line-warning-light);
+  --color-line-success-light: var(--krds-line-success-light);
+  --color-line-information-light: var(--krds-line-information-light);
+  --color-line-primary-light: var(--krds-line-primary-light);
+
+  --color-primary: var(--krds-primary);
+  --color-primary-hover: var(--krds-primary-hover);
+  --color-primary-pressed: var(--krds-primary-pressed);
+  --color-secondary: var(--krds-secondary);
+  --color-success: var(--krds-success);
+  --color-gray-element: var(--krds-gray-element);
+  --color-button-secondary-hover: var(--krds-button-secondary-hover);
+  --color-button-tertiary-hover: var(--krds-button-tertiary-hover);
+
+  /* 글꼴: KRDS 기본 글꼴 Pretendard GOV (layout.tsx에서 불러온다) */
+  --font-sans: var(--font-pretendard-gov), "Pretendard GOV", "Pretendard", "Apple SD Gothic Neo",
+    "Malgun Gothic", system-ui, sans-serif;
+}
+
+@theme {
+  /* 글자 크기: KRDS 타입 스케일(PC) — body/label 13·15·17·19, heading 17·19·24·32·40 */
+  --text-xs: 13px;
+  --text-xs--line-height: 1.5;
+  --text-sm: 15px;
+  --text-sm--line-height: 1.5;
+  --text-base: 17px;
+  --text-base--line-height: 1.5;
+  --text-lg: 19px;
+  --text-lg--line-height: 1.5;
+  --text-xl: 19px;
+  --text-xl--line-height: 1.5;
+  --text-2xl: 24px;
+  --text-2xl--line-height: 1.5;
+  --text-3xl: 32px;
+  --text-3xl--line-height: 1.5;
+  --text-4xl: 40px;
+  --text-4xl--line-height: 1.5;
+
+  /* 모서리 둥글기: KRDS radius 토큰 (xsmall 2 · small 4 · medium 6/8 · large 10 · xlarge 12) */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-2xl: 12px;
+  --radius-3xl: 12px;
+}
+
+/* KRDS 기본 글자 크기 17px(body-medium). rem 기준도 17px로 두어 여백이 글자 크기와 함께 커지게 한다 */
+html {
+  font-size: 106.25%;
+}
+
+body {
+  background: var(--krds-surface-page);
+  color: var(--krds-fg);
+  font-size: 17px;
+  line-height: 1.5; /* KRDS 본문 줄 간격 150% */
+}
+
+/*
+ * 키보드 초점 표시: KRDS 방식 그대로 — 2px 흰 테두리 + 바깥 4px 주 색(primary-50) 띠.
+ * 마우스 클릭에는 나오지 않고 키보드로 이동할 때만 보인다(:focus-visible).
+ */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--krds-surface);
+  outline-offset: 0;
+  box-shadow: 0 0 0 4px var(--krds-primary);
+}
