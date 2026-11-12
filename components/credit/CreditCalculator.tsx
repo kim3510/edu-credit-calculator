@@ -204,12 +204,12 @@ export default function CreditCalculator() {
           <div className="hidden rounded-2xl border-2 border-dashed border-line bg-surface p-10 text-center lg:block">
             {/* 마스코트 키우미: 빈 자리를 채우는 장식 이미지 (캠코 누리집 출처, page.tsx 맨 아래에 출처 표시) */}
             <Image
-              src="/kamco/kiuumi.png"
+              src="/kamco/kiuumi-wink.png"
               alt=""
-              width={899}
-              height={1183}
+              width={557}
+              height={554}
               sizes="128px"
-              className="mx-auto mb-4 h-32 w-auto"
+              className="mx-auto mb-4 h-28 w-auto"
             />
             <p className="text-lg font-bold text-fg-bolder">계산 결과</p>
             <p className="mt-2 text-sm text-fg-subtle">

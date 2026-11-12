@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import {
   buildConclusion,
@@ -126,14 +127,25 @@ export default function ResultCard({ result, stale }: Props) {
       )}
 
       {/* 결론 한 줄: 가장 궁금한 "앞으로 몇 학점을 더 들어야 하는지"를 숫자 카드보다 먼저 보여준다 */}
-      <p
-        className={`mb-4 rounded-lg border p-4 text-lg font-bold leading-snug ${conclusionStyle.box}`}
+      {/* 오른쪽에 키우미: 더 이수해야 하면 "끙" 표정, 달성했거나 의무가 없으면 윙크 (장식 이미지, 캠코 누리집 출처) */}
+      <div
+        className={`mb-4 flex items-center justify-between gap-3 rounded-lg border p-4 ${conclusionStyle.box}`}
       >
-        <span aria-hidden="true" className="mr-2">
-          {conclusionStyle.icon}
-        </span>
-        {conclusion.text}
-      </p>
+        <p className="text-lg font-bold leading-snug">
+          <span aria-hidden="true" className="mr-2">
+            {conclusionStyle.icon}
+          </span>
+          {conclusion.text}
+        </p>
+        <Image
+          src={conclusion.tone === "todo" ? "/kamco/kiuumi-puff.png" : "/kamco/kiuumi-wink.png"}
+          alt=""
+          width={557}
+          height={554}
+          sizes="64px"
+          className="h-14 w-auto shrink-0 sm:h-16"
+        />
+      </div>
 
       {/* 가장 궁금한 "들어야 할 교육 학점"을 큰 칸으로, 목표·남은 학점은 옆의 작은 칸으로 보여준다 */}
       {/* @container: 화면이 아니라 이 칸 자체의 폭에 맞춰 배치한다 — 좁으면 큰 칸 아래에 작은 칸 2개, 넓으면 큰 칸 옆에 작은 칸 2개 */}
